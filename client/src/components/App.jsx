@@ -43,6 +43,7 @@ function App() {
       }
     })
     .then(function(response){
+      console.log("fetched post request")
       return response.json();
     })
     .then(function(data){
