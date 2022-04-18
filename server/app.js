@@ -9,11 +9,6 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
-app.use(express.static(path.resolve(__dirname, "../client/build")));
-// app.get("*", function (request, response) {
-// 	response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-//   });
-
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING,
 	{
 	  useNewUrlParser: true,
@@ -68,6 +63,11 @@ app.delete("/notes/:id", function (req, res) {
 		}
 	})
 })
+
+app.use(express.static(path.resolve(__dirname, "../client/build")));
+app.get("*", function (request, response) {
+	response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+  });
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
