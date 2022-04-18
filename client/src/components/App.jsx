@@ -16,8 +16,9 @@ function App() {
   }
   
   function fetchData() {
-    fetch(`http://localhost:3001/notes`)
+    fetch(`/notes`)
     .then(function(response){
+      console.log(response)
       return response.json();
     })
     .then(function(data){
@@ -30,7 +31,7 @@ function App() {
   }
 
   function postRequest(note) {
-    fetch(`http://localhost:3001/notes`,{
+    fetch(`/notes`,{
       method: "post",
       body: JSON.stringify({
         title: note.title,
@@ -52,8 +53,8 @@ function App() {
   }
 
   function deleteRequest(id) {
-    fetch(`http://localhost:3001/notes/${id}`, {
-      method: "delete",
+    fetch(`/notes/${id}`, {
+      method: "delete"
     })
     .then(function(){
       fetchData()
