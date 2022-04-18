@@ -1,5 +1,6 @@
 # Keeper-App
 View the demo using Heroku: https://obscure-atoll-25551.herokuapp.com/
+![main](https://github.com/mxyin/keeper-app/blob/main/keeper-app-main.png)
 
 ## Tech
 Technologies used: MongoDB, HTML, CSS, React.js, JavaScript, Node.js
