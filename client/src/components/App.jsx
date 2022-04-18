@@ -18,7 +18,7 @@ function App() {
   function fetchData() {
     fetch(`/notes`)
     .then(function(response){
-      console.log(response)
+      console.log("The response is: " + response)
       return response.json();
     })
     .then(function(data){
