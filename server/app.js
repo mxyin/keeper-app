@@ -16,7 +16,7 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING,
 	}
 )
 .then(() => console.log("MongoDB has been connected"))
-.catch((err) => console.log(err));
+.catch((err) => console.log("MongoDB is not connected"));
 
 const noteSchema = {
 	title: String,
@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.get("https://obscure-atoll-25551.herokuapp.com/notes", (req, res) => {
+app.get("/notes", (req, res) => {
 	Note.find(function (err, foundNotes) {
 		if (!err) {
 			res.send(foundNotes);
@@ -42,7 +42,7 @@ app.get("https://obscure-atoll-25551.herokuapp.com/notes", (req, res) => {
 	});
 });
 
-app.post("https://obscure-atoll-25551.herokuapp.com/notes", function (req, res) {
+app.post("/notes", function (req, res) {
 	const newNote = new Note({
 		title: req.body.title,
 		content: req.body.content
@@ -52,7 +52,7 @@ app.post("https://obscure-atoll-25551.herokuapp.com/notes", function (req, res) 
 	res.end();
 })
 
-app.delete("https://obscure-atoll-25551.herokuapp.com/notes/:id", function (req, res) {
+app.delete("/notes/:id", function (req, res) {
 	Note.deleteOne({
 		_id: req.params.id
 	}, function (err) {
