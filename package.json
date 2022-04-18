@@ -9,6 +9,7 @@
     "start": "concurrently --kill-others-on-fail \"npm run client\" \"npm run server\" "
   },
   "dependencies": {
+    "concurrently": "^7.1.0",
     "dotenv": "^16.0.0"
   }
 }
