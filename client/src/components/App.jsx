@@ -18,7 +18,8 @@ function App() {
   function fetchData() {
     fetch(`/notes`)
     .then(function(response){
-      console.log("The response is: " + response)
+      console.log("The response is: ")
+      console.log(response)
       return response.json();
     })
     .then(function(data){
@@ -53,10 +54,12 @@ function App() {
   }
 
   function deleteRequest(id) {
+    console.log(id);
     fetch(`/notes/${id}`, {
       method: "delete"
     })
     .then(function(){
+      console.log("fetched delete request")
       fetchData()
     })
     .catch(err => {
